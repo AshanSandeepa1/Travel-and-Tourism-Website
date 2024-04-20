@@ -1,0 +1,145 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.filter-container {
+    display: flex;
+    flex: 1; /* Grow to fill remaining space */
+}
+.main-content {
+    flex: 1; /* Grow to fill remaining space */
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+    display: inline-block;
+    vertical-align: top;
+    height: 380px; /* Adjust the height as needed */
+}
+
+.card p{
+    font-size: 1.4rem;
+}
+
+.card .image img {
+    width: 278px;
+    height: 200px;
+}
+
+.caption {
+    padding: 10px 0;
+}
+
+.rate {
+    color: #f1c40f;
+}
+
+.product_name {
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.description, .location {
+    margin: 5px 0;
+}
+
+
+.filters {
+    width: 260px;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+    box-sizing: border-box;
+    height: 100vh; /* Fill the full viewport height */
+    overflow-y: auto; /* Add scrollbar if content exceeds height */
+}
+
+.filters h2 { 
+    margin-bottom: 10px;
+}
+
+.filter-option {
+    margin-bottom: 15px;
+}
+
+.filter-option label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.filter-option select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+#apply-filters, #reset-filters {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+#apply-filters:hover, #reset-filters:hover {
+    background-color: #0056b3;
+}
+
+.back-image {
+    background-image: url('images/Stays-background.jpg'); /* Replace 'your-background-image.jpg' with your image path */
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    text-align: center;
+    padding: 100px 0; /* Adjust as needed */
+    color: white; /* Text color for the H2 and search icon */
+}
+
+.back-image h2 {
+    font-size: 8em; /* Adjust as needed */
+    margin-bottom: 20px; /* Add space below the H2 */
+}
+
+.back-image .search-icon {
+    position: relative;
+    display: inline-block;
+}
+
+.back-image .search-icon i {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 24px;
+}
+
+.back-image input[type="text"] {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8); /* Example color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Example shadow */
+    transition: width 0.3s ease;
+    width: 250px; /* Initial width of the input field */
+}
+
+.back-image input[type="text"]:focus {
+    width: 350px; /* Width of the input field when focused */
+}
