@@ -11,22 +11,42 @@
     <link rel="stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <!--css link-->
     <link rel="stylesheet" href = "style.css">
-  
+
+    <link rel="stylesheet" href="path/to/swiper-bundle.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href = "cardstyles.css">
+    
+
+
+    <?php
+    session_start();
+    ?>
 
 
 </head>
 
 <body>
+<?php
+include 'db_connection.php';
+?>
       <!--header section begins-->
       <section class="header">
 
-        <a href="home.php" class ="logo">Travel.</a>
+        <a href="home.php" class ="logo">TripiFy.com</a>
 
         <nav class="navbar">
           <a href="home.php">home</a>
           <a href="about.php">about</a>
-          <a href="package.php">packages</a>
-          <a href="book.php">book</a>
+          <a href="todo.php">to-do list</a>
+          <!-- Check if user is logged in -->
+        <?php if(isset($_SESSION['username'])): ?>
+            <button class="btnlogin"><?php echo $_SESSION['username']; ?></button>
+        <?php else: ?>
+            <button class="btnlogin">Log in</button>
+        <?php endif; ?>
         </nav>
 
         <div id="menu-btn" class="fas fa-bars"></div>
@@ -79,43 +99,15 @@
 
 
           </div>
-
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-
-
+    
         </div>
 
 
       </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       <!--home section -->
+
+    
 
      <!--Service section-->
       
@@ -125,10 +117,10 @@
 
       <div class="box-container">
 
-        <div class="box">
+        <a href="stays.php" class="box">
           <img src ="images/stays.png" alt="">
           <h3>Stays</h3>
-        </div>
+</a>
 
         <div class="box">
           <img src ="images/restaurant.png" alt="">
@@ -154,40 +146,201 @@
 
      </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
    <!--Service section-->
 
+<!--top rated section-->
+
+<h1 class="heading-title"> TOP RATED Destinations</h1>
+
+<section class="main-content">
+    <?php $counter = 0; ?>
+    <?php foreach ($stays as $stay): ?>
+        <?php if ($counter < 5): ?>
+            <a href="hotel_details.php?id=<?php echo $stay['id']; ?>" class="card" data-province="<?php echo $stay['Province']; ?>" data-rating="<?php echo $stay['rating']; ?>" data-cost="<?php echo $stay['price']; ?>">
+                <div class="image">
+                    <img src="<?php echo $stay['thumbnail']; ?>" alt="<?php echo $stay['name']; ?>">
+                </div>
+                <div class="caption">
+                    <p class="rate">
+                        <?php
+                        $rating = $stay['rating'];
+                        for ($i = 1; $i <= 5; $i++) {
+                            if ($i <= $rating) {
+                                echo '<i class="fas fa-star"></i>';
+                            } else {
+                                echo '<i class="far fa-star"></i>';
+                            }
+                        }
+                        ?>
+                    </p>
+                    <p class="product_name"><?php echo $stay['name']; ?></p>
+                    <p class="description"><?php echo $stay['shortDescription']; ?></p>
+                    <p class="location"><?php echo $stay['location']; ?></p>
+                    <p class="price">Rs. <?php echo $stay['price']; ?> per night</p>
+                </div>
+            </a>
+            <?php $counter++; ?>
+        <?php endif; ?>
+    <?php endforeach; ?>
+</section>
 
 
 
+  <!--home about section-->
+
+<section class="home-about">
+  
+<div class="image">
+  <img src="images/about-us.jpeg" alt="" >
+</div>
+
+<div class="content">
+  <h3>About Us</h3>
+  <p>Welcome to our Travel and Tourism platform, where wanderlust meets seamless exploration. Embark on a journey with us as we traverse the globe, unlocking the wonders of the world and creating unforgettable experiences along the way.</p>
+  <a href="about.php" class="btn">read more</a>
+</div>
+
+
+</section>
+
+  <!--home about section-->
 
 
 
+<!--review section begins-->
+<section class="reviews">
 
+<div class="swiper reviews-slider">
+
+  <div class="swiper-wrapper">
+
+        <div class="swiper-slider slide">
+
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+
+          </div>
+          <p>TripiFy.com made planning my trip a breeze! The website's user-friendly interface allowed me to easily search for accommodations in my desired location, 
+            compare prices, and read reviews from other travelers. I appreciated the flexibility of being able to filter my search based on my preferences, 
+            whether it was price range, amenities, or location.
+</p>
+
+        <h3>Emily Johnson</h3>
+        <span>traveller</span>
+        <img src="images/pic1.jpg" alt="" alt="">
+        
+      </div>
+
+      <div class="swiper-slider slide">
+
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            
+
+          </div>
+          <p>TripiFy.com has become my go-to resource whenever I'm planning a trip. The wealth of information available on the website, 
+            from reviews and ratings to photos and insider tips, has been invaluable in helping me make informed decisions 
+            about where to stay, where to eat, and what activities to do. I love how I can easily compare options and get a sense of what to 
+            expect before making any bookings.
+</p>
+
+        <h3>Nirmal Fernando</h3>
+        <span>traveller</span>
+        <img src="images/pic2.jpg" alt="" alt="">
+        
+      </div>
+
+      <div class="swiper-slider slide">
+
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            
+
+          </div>
+          <p>I've been using TripiFy.com for years, and it never disappoints! Whether I'm booking a stays and hotels TripiFy.com comprehensive search functionality and competitive 
+            prices always come through for me. I appreciate how I can easily bundle my bookings to save even more money, and the loyalty program offers great perks for frequent travelers.
+</p>
+
+        <h3>Samantha Chen</h3>
+        <span>traveller</span>
+        <img src="images/pic3.jpg" alt="" alt="">
+        
+      </div>
+
+      <div class="swiper-slider slide">
+
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+
+          </div>
+          <p>Staying in an TripiFy.com property has completely transformed the way I travel! I love the personalized touch and unique experiences that TripiFy.com hosts offer, 
+            whether it's a cozy apartment in the heart of a city or a 
+            charming countryside cottage. The website's interface is user-friendly, 
+            allowing me to easily browse listings, read detailed descriptions, and view photos of potential accommodations.
+</p>
+
+        <h3>Michael Rodriguez</h3>
+        <span>traveller</span>
+        <img src="images/pic4.jpg" alt="" alt="">
+        
+      </div>
+
+      <div class="swiper-slider slide">
+
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+
+          </div>
+          <p>TripiFy.com is my go-to tool for finding the best travel deals! Whether I'm searching for flights, hotels, 
+          TripiFy.com's powerful search engine scours the web to find me the most competitive prices. 
+            I love how I can easily compare options from multiple providers and filter my search based on my preferences, whether it's price, duration, or airline.. 
+</p>
+
+        <h3>Sarah Patel</h3>
+        <span>traveller</span>
+        <img src="images/pic5.jpg" alt="" alt="">
+        
+      </div>
+
+      <div class="swiper-slider slide">
+
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+
+          </div>
+          <p> Travel Srilanka
+</p>
+
+        <h3>ABC</h3>
+        <span>traveller</span>
+        <img src="images/pic6.jpg" alt="" alt="">
+        
+      </div>
+      
+        
+  </div>
+
+</div>
 
 
 
@@ -275,27 +428,8 @@
   <!--footer section ends-->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <!--swiper js link-->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
- 
+
 
   <!--js link-->
 <script src ="script.js"></script>

@@ -64,6 +64,7 @@ section{
 .btn:hover{
     background: var(--main-color);
 }
+
 .heading-title{
     text-align: center;
     margin-bottom: 3rem;
@@ -81,6 +82,7 @@ section{
     z-index: 1000;
     background-color: var(--white);
     display: flex;
+    padding-right: 150px;
     padding-top: 2rem;
     padding-bottom: 2rem;
     box-shadow: var(--box-shadow);
@@ -94,14 +96,51 @@ section{
 }
 
 .header .navbar a{
+    position: relative;
     font-size: 2rem;
-    margin-left: 2rem;
+    margin-left: 40px;
     color: var(--black);
 }
 
 .header .navbar a:hover{
     color: var(--main-color);
 
+}
+.navbar a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: var(--main-color);
+    border-radius: 5px;
+    transform-origin:right ;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+.navbar a:hover:after{
+    transform: scaleX(1);
+    transform-origin: left;
+}
+.header .navbar .btnlogin{
+    width: 100px;
+    height: 4rem;
+    font-size: 2rem;
+    color: var(--black);
+    background: transparent;
+    border: 2px solid #222 ;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 2rem;
+    margin-left: 40px;
+    
+}
+.header .navbar .btnlogin:hover{
+    background: var(--main-color);
+    color: var(--white);
+    border: none ;
 }
 
 #menu-btn{
@@ -163,19 +202,8 @@ section{
     padding-bottom: 1rem 0;
     animation: fadeIn .2s linear backwards .4s;
 }
-.home .swiper-slide .content .btn{
-    animation: fadeIn .2s linear backwards .6s;
-}
 
-
-
-
-
-
-
-
-
-
+    
 
 .services .box-container{
     display: grid;
@@ -212,6 +240,84 @@ section{
 
 
 
+.home-about{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+.home-about .image{
+    flex:1 1 41rem;
+}
+.home-about .image img{
+    width: 100%;
+
+}
+.home-about .content{
+    flex: 1 1 41rem;
+    padding: 3rem;
+    background: var(--light-bg);
+
+}
+.home-about .content h3{
+    font-size: 3rem;
+    color: var(--black);
+
+}
+.home-about .content p{
+    font-size: 1.5rem;
+    padding:1rem 0 ;
+    line-height: 2;
+    color: var(--black);
+
+}
+.reviews{
+    background: var(--white);
+    
+
+}
+.reviews .slide{
+    padding: 4rem;
+    margin-left: 1rem;
+    border-radius: 20px;
+    background: #eee;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    margin-bottom: 4rem;
+    width: 300px;
+    
+    
+}
+.reviews .slide .stars i{
+    font-size: 1.7rem;
+    color: var(--main-color);
+}
+.reviews .slide .stars{
+    padding-bottom: .5rem;
+}
+.reviews .slide p{
+    font-size: 1.5rem;
+    color: var(--light-black);
+    line-height: 2;
+    padding: 1rem 0;
+}
+.reviews .slide h3{
+    font-size: 2rem;
+    color: var(--black);
+}
+.reviews .slide span{
+    font-size: 1.5rem;
+    color: var(--main-color);
+    display: block;
+   
+
+}
+.reviews .slide img{
+    height:15rem;
+    width: 15rem;
+    border-radius: 100%;
+    margin-top: 1rem;
+}
 
 
 
@@ -232,13 +338,237 @@ section{
 
 
 
+/*login page css*/
+
+.login{
+    
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: url(https://th.bing.com/th/id/R.684d4a3c01599239eb4d5a87e76ec259?rik=gWycap3KnYkDkQ&pid=ImgRaw&r=0);
+        background-size: cover;
+        
+    
+}
+.login-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 220px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 4rem;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login .login-container .submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #1dc0c0;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login .login-container .submit:hover {
+    background-color: #000000;
+}
+
+.more-options {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.more-options a {
+    text-decoration: none;
+    color: #1dc0c0;
+}
+
+.more-options a:hover {
+    color: #000000;
+}
+
+.social-login {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.social-login p {
+    margin-bottom: 10px;
+}
+
+.social-login ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.social-login ul li {
+    display: inline;
+    margin: 0 5px;
+}
+
+.social-login ul li a {
+    color: #1dc0c0;
+    font-size: 24px;
+}
+
+.social-login ul li a:hover {
+    color: #000000;
+}
+
+/*login page css*/
+
+/*forgetpass page css*/
+.forgetpass {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(https://th.bing.com/th/id/R.684d4a3c01599239eb4d5a87e76ec259?rik=gWycap3KnYkDkQ&pid=ImgRaw&r=0);
+}
+
+.forgot-password-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.forgot-password-container h2 {
+    margin-bottom: 20px;
+    font-size: 4rem;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.forgetpass .forgot-password-container  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #1dc0c0;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.forgetpass .forgot-password-container  button:hover {
+    background-color: #000000;
+}
 
 
+/*forgetpass page css*/
+
+/*createpass page css*/
+.registeracc {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(https://th.bing.com/th/id/R.684d4a3c01599239eb4d5a87e76ec259?rik=gWycap3KnYkDkQ&pid=ImgRaw&r=0);
+}
+
+.registration-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.registration-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 4rem;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.registeracc .registration-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #1dc0c0;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.registeracc .registration-container button:hover {
+    background-color: #000000;
+}
 
 
-
-
-
+/*createpass page css*/
 
 
 
@@ -288,28 +618,107 @@ section{
 
 }
 
+.todo-container .container{
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, black, white);
+    padding: 10px;
+    border-radius: 10px;
+}
+.todo-app{
+   width: 100%;
+   max-width: 540px;
+   background:var(--main-color);
+   margin: 100px auto 20px;
+   padding: 40px 30px 70px;
+   border-radius: 10px;
+}
+.todo-app h2{
+    color:rgb(11, 11, 12);
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 4rem;
+ }
+ .todo-app h2 img{
+    width: 30px;
+    margin-left: 10px;
+    
+ }
+ .row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f3c584;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
 
+ }
+ input{
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+ }
+ .todo-container .container  button{
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #ff5945;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
 
+ }
+ .todo-container .container  ul li{
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+ }
+ .todo-container .container  ul li::before{
+    content: '';
+    position:absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50px;
+    background-image: url(images/unchecked.png) ;
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+ }
 
+ .todo-container .container  ul li.checked{
+   color: #e40d0d;
+   text-decoration: line-through;
 
+ }
+ .todo-container .container  ul li.checked::before{
+   background-image: url(Images/checked.png);
+  
+ }
+ .todo-container .container  ul li span{
+   position: absolute;
+   right: 0;
+   top: 5px;
+   width: 40px;
+   height: 40px;
+   font-size: 22px;
+   color: #555;
+   line-height: 40px;
+   text-align: center;
+   border-radius: 50%;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ }
+ .todo-container .container  ul li span:hover{
+   background: #edeef0;
+ }
 
 
 
@@ -329,6 +738,9 @@ section{
     
     section{
         padding: 3rem 5%;
+    }
+    .home .swiper-slide .content h3{
+        font-size: 10vw;
     }
 }
 
